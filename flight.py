@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 '''
-the code is cloned from https://gist.github.com/kenners/8abe1d2f62400f87958d
-   which is used for getting kml data from flightradar24
+    the code is cloned from https://gist.github.com/kenners/8abe1d2f62400f87958d
+        which is used for getting kml data from flightradar24
+    find the flight code in http://www.flightradar24.com/data/flights/
+
 '''
 
 
