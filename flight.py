@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 '''
     the code is cloned from https://gist.github.com/kenners/8abe1d2f62400f87958d
         which is used for getting kml data from flightradar24
@@ -8,18 +8,20 @@
 
 
 import simplekml
-import urllib.request
+import sys
+import urllib
 try:
     import simplejson as json
 except ImportError:
     import json
 
-fr24_flight_code = ""
-output_file = ""
+
+fr24_flight_code = sys.argv[1]
+output_file = fr24_flight_code + '.kml'
 api_url = "http://krk.fr24.com/_external/planedata_json.1.3.php?f={0}".format(fr24_flight_code)
 
 kml = simplekml.Kml()
-html = urllib.request.urlopen(api_url)
+html = urllib.urlopen(api_url)
 flight = json.loads(html.read().decode('utf-8'))
 trail = flight["trail"]
 temp_path = [trail[x:x+3] for x in range(0, len(trail), 3)]
